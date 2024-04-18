@@ -54,9 +54,9 @@ public:
     void set(const string name, int id, double weight, bool married, const char *address);
     void setName(const string name)       { this->name = name; }
     void setPasswd(const string passwd)   { this->passwd = passwd; }
-    void setId(int id)                   { this->id = id; }
-    void setWeight(double weight)        { this->weight = weight; }
-    void setMarried(bool married)        { this->married = married; }
+    void set(int id)                   { this->id = id; }
+    void set(double weight)        { this->weight = weight; }
+    void set(bool married)        { this->married = married; }
     void setAddress(const char* address); // 5_2에서 수정
     void setMemo(const char* c_str);      // 5_2에서 수정
 
@@ -370,8 +370,8 @@ public:
     Memo(const char* c_str = {} ): mStr(c_str == nullptr ? "" : c_str) { }
     string getNext(size_t* ppos);
     void displayMemo();
-    const char *get_c_str() { return mStr.c_str(); }
-    void set_c_str(const char *c_str) {
+    const char *c_str() { return mStr.c_str(); }
+    void c_str(const char *c_str) {
           /*TODO: 매개변수 c_str이 nullptr일 경우 mStr을 ""로 설정하고
                   아닌 경우 mStr을 c_str로 설정하라.
                   mStr = ? : ; 3항 연산자를 사용하여 한 문장으로 완성하라.*/
@@ -729,11 +729,11 @@ void Memo::run() {
 
 class CurrentUser
 {
-    Person* pUser;
+    Person& rUser;
     Memo    memo; // ch4_3에서 추가
 
 public:
-    CurrentUser(Person* pUser): pUser(pUser) { }  // user(u)는 this->user = u 와 동일한 기능
+    CurrentUser(Person& rUser): rUser(rUser) { }  // user(u)는 this->user = u 와 동일한 기능
     void display();
     void setter();
     void getter();
@@ -749,45 +749,46 @@ public:
 };
 
 void CurrentUser::display() { // Menu item 1
-    pUser->println();
+    rUser.println();
 }
 
 void CurrentUser::getter() { // Menu item 2
-    cout << "name:" << pUser->getName() << ", id:" << pUser->getId() << ", weight:" <<
-            pUser->getWeight() << ", married:" << pUser->getMarried() <<
-            ", address:" << pUser->getAddress() << endl;
+    cout << "name:" << rUser.getName() << ", id:" << rUser.getId() << ", weight:" <<
+            rUser.getWeight() << ", married:" << rUser.getMarried() <<
+            ", address:" << rUser.getAddress() << endl;
 }
 
 void CurrentUser::setter() { // Menu item 3
-    Person* pp = new Person {"pp"};
-    pp->setName(pp->getName());
-    pp->setId(pUser->getId());
-    pp->setWeight(pUser->getWeight());
-    pp->setMarried(pUser->getMarried());
-    pp->setAddress(pUser->getAddress());
-    cout << "pp->setMembers():"; pp->println();
-    delete pp;
+	 Person p("rp"), &rp = p;
+    rp.setName(rp.getName());
+    rp.set(rUser.getId());
+    rp.set(rUser.getWeight());
+    rp.set(rUser.getMarried());
+    rp.setAddress(rUser.getAddress());
+    cout << "rp.setMembers():"; rp.println();
+    rp.println(); //??
+
 }
 
 void CurrentUser::set() { // Menu item 4
-    Person* pp = new Person {"pp"};
-    pp->set(pp->getName(), pUser->getId(), pUser->getWeight(),
-              !pUser->getMarried(), pUser->getAddress());
-    cout << "pp->set():"; pp->println();
-    delete pp;
+	Person p("rp"), &rp = p;
+    rp.set(rp.getName(), rUser.getId(), rUser.getWeight(),
+              !rUser.getMarried(), rUser.getAddress());
+    cout << "rp.set():"; rp.println();
+
 }
 
 void CurrentUser::whatAreYouDoing() {  // Menu item 5
-    pUser->whatAreYouDoing();
+    rUser.whatAreYouDoing();
 }
 
 void CurrentUser::isSame() { // Menu item 6
-    pUser->println();
-    cout << "isSame(\"user\", 1): " << pUser->isSame("user", 1) << endl;
+    rUser.println();
+    cout << "isSame(\"user\", 1): " << rUser.isSame("user", 1) << endl;
 }
 
 void CurrentUser::inputPerson() { // Menu item 7
-    if (UI::inputPerson(pUser)) // GilDong 1 70.5 true :Jongno-gu, Seoul:
+    if (UI::inputPerson(&rUser)) // GilDong 1 70.5 true :Jongno-gu, Seoul:
         display();              // user 1 71.1 true :Gwangju Nam-ro 21:
 }
 
@@ -795,7 +796,7 @@ void CurrentUser::changePasswd() {
     /*UI::getNext("New password: ")를 사용해 비번을 입력 받고,
     pUser가 포인트하는 객체의 비번을 변경하라.*/
 	string passwd = UI::getNext("New password: ");
-	pUser->setPasswd(passwd);
+	rUser.setPasswd(passwd);
     cout << "Password changed" << endl;
 }
 
@@ -803,9 +804,9 @@ void CurrentUser::changePasswd() {
 // 메모 메뉴에서 메모의 추가, 삭제, 교체 등의 조작이 끝나고 나면 (memo.run())
 // 반대로 memo에 있던 메모 내용을 다시 Person 객체로 복사한다.
 void CurrentUser::manageMemo() { // Menu item 9
-    memo.set_c_str(pUser->getMemo());
+    memo.c_str(rUser.getMemo());
     memo.run();
-    pUser->setMemo(memo.get_c_str());
+    rUser.setMemo(memo.c_str());
 }
 
 void CurrentUser::defaultParameter() { // Menu item 10
@@ -821,7 +822,7 @@ void CurrentUser::defaultParameter() { // Menu item 10
     m1.displayMemo();
 
     cout << "\nMemo m2(pUser->getMemo())" << endl;
-    Memo m2(pUser->getMemo()); // 메모 생성자에게 인자를 넘겨 준 경우
+    Memo m2(rUser.getMemo()); // 메모 생성자에게 인자를 넘겨 준 경우
     m2.displayMemo();
 }
 
@@ -829,14 +830,14 @@ void CurrentUser::staticMember() { // Menu item 11
 
   /*TODO: string 변수 word1을 선언하고 클래스 이름을 사용하여 UI의
           getNext("Input a word: ")를 호출한 후 리턴 값으로 word1 변수를 초기화하라.*/
-	string word1 = UI::getNext("");
+	string word1 = UI::getNext("Input a word: ");
     cout << "UI::getNext(): " << word1 << endl << endl;
 
     UI ui;
 
   /*TODO: string 변수 word2을 선언하고 UI의 객체인 ui 이름으로
           getNext("Input a word: ")를 호출한 후 리턴 값으로 word2 변수를 초기화하라.*/
-    string word2 = ui.getNext("");
+    string word2 = ui.getNext("Input a word: ");
     cout << "ui.getNext() : " << word2 << endl;
 }
 
@@ -953,7 +954,7 @@ class Factory
 public:
     // 동적으로 Person 객체를 할당 받은 후 키보드로부터 새로 추가하고자 하는 사람의
     // 인적정보를 읽어 들여 해당 객체에 저장한 후 그 객체의 포인터를 반환한다.
-    Person* inputPerson(istream* in) {
+    static Person* inputPerson(istream* in) {
         Person* p = new Person();
         p->input(in);  // 멤버들을 입력 받음
         if (UI::checkDataFormatError(in)) { // 정수입력할 곳에 일반 문자 입력한 경우
@@ -972,7 +973,7 @@ public:
 class PersonManager
 {
     VectorPerson persons;
-    Factory factory;
+    //Factory factory;
 
     void deleteElemets();
     void printNotice(const string preMessage, const string postMessage);
@@ -1044,7 +1045,7 @@ void PersonManager::append() { // Menu item 2
     // stoi("10") 함수: 문자열 "10"을 정수 10으로 변환
     printNotice("Input "+to_string(count), ":");
     for (int i = 0; i < count; ++i) {
-        Person* p = factory.inputPerson(&cin); // 한 사람 정보 입력 받음
+        Person* p = Factory::inputPerson(&cin); // 한 사람 정보 입력 받음
         if (p) persons.push_back(p); // if (p != nullptr) 와 동일;
         // 만약 p가 nullptr이면 이는 입력 시 에러가 발생한 것임
         // (즉, 정수를 입력해야 하는 곳에 일반 문자를 입력한 경우)
@@ -1083,7 +1084,7 @@ void PersonManager::login() {
     if (passwd != p->getPasswd()) // 비번 불일치
         cout << "WRONG password!!" << endl;
     else
-        CurrentUser(p).run();
+        CurrentUser(*p).run();
 }
 
 void PersonManager::run() {
@@ -1263,7 +1264,7 @@ public:
             //TODO: Person형의 객체 p를 선언하되 복사생성자를 사용하여 u을 복사하여 초기화하라.
             Person p(u);
             //TODO: 실행결과를 참고하여 지역 객체 p의 멤버 값들을 변경하라.
-            p.setName("p"); p.setId(2); p.setWeight(80); p.setMarried(false), p.setAddress("Seoul");
+            p.setName("p"); p.set(2); p.set(80); p.set(false), p.setAddress("Seoul");
 
             cout << "u: "; u.println();
             cout << "p: "; p.println();
@@ -1280,12 +1281,12 @@ public:
            cout << "r: "; r.println();         // 두 출력물은 동일한 객체를 출력함
 
            //TODO: 실행결과를 참고하여 참조 변수 r의 멤버 값들을 변경하라.
-           r.setName("r"); r.setId(2); r.setWeight(80); r.setMarried(false), r.setAddress("Seoul");
+           r.setName("r"); r.set(2); r.set(80); r.set(false), r.setAddress("Seoul");
            cout << "p: "; p.println();
            cout << "r: "; r.println();
 
            //TODO: 실행결과를 참고하여 지역 객체 p의 멤버 값들을 변경하라.
-           p.setName("p"); p.setId(1); p.setWeight(70); p.setMarried(true), p.setAddress("Gwangju");
+           p.setName("p"); p.set(1); p.set(70); p.set(true), p.setAddress("Gwangju");
            cout << "p: "; p.println();
            cout << "r: "; r.println();
            // r은 객체 p를 공유하는 참조이므로 함수 리턴 시 소멸자가 실행되지 않음
@@ -1608,10 +1609,10 @@ class AllocatedMember
     }
 
     void manageMemo() { // Menu item 3
-            memo.set_c_str(u.getMemo());
+            memo.c_str(u.getMemo());
             memo.run();
             cout << "\nmemo.run() returned" << endl;
-            u.setMemo(memo.get_c_str());   // 메모 메뉴에서 새로 삽입한 메모를 u에 저장
+            u.setMemo(memo.c_str());   // 메모 메뉴에서 새로 삽입한 메모를 u에 저장
             print_memo(u);
         }
 
@@ -1656,12 +1657,12 @@ class AllocatedMember
             u.println();
             print_memo(u);
 
-            cout << "memo.set_c_str(u.getMemo())" << endl;
-            memo.set_c_str(u.getMemo()); // u.getMemo() == nullptr이므로 memo의 mStr은 ""이다.
+            cout << "memo.c_str(u.getMemo())" << endl;
+            memo.c_str(u.getMemo()); // u.getMemo() == nullptr이므로 memo의 mStr은 ""이다.
             memo.displayMemo();
 
-            cout << endl << "u.setMemo(memo.get_c_str())" << endl;
-            u.setMemo(memo.get_c_str()); // memo.get_c_str() == nullptr 이므로
+            cout << endl << "u.setMemo(memo.c_str())" << endl;
+            u.setMemo(memo.c_str()); // memo.get_c_str() == nullptr 이므로
                                           // u의 memo_c_str은 nullptr로 설정
             print_memo(u);
         }
@@ -1775,8 +1776,3 @@ int main() {
 //-----------------------------------------------------------------------------
 // ch2.cpp 소스 끝
 //-----------------------------------------------------------------------------
-
-
-
-
-
