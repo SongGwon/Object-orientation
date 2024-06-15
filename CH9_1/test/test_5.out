@@ -1,0 +1,239 @@
+
+******************************* Main Menu *********************************
+* 0.Exit 1.PersonManager(ch3_2, 4, 6, 7_2, 8, 9)                          *
+* 2.Class:Object(ch3_1) 3.CopyConstructor(ch5_1) 4.AllocatedMember(ch5_2) *
+* 5.OperatorOverload(ch7_1) 6.Inheritance(ch8)                            *
+***************************************************************************
+Menu item number? 1
+Person::Person(...):p0 10 70 false :Gwangju Nam-gu Bongseon-dong 21:
+Person::Person(...):p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+Person::Person(...):p2 12 52.2 false :1001, Jungang-daero, Yeonje-gu, Busan:
+Person::Person(...):p3 13 83.3 true :100 Dunsan-ro Seo-gu Daejeon:
+Person::Person(...):p4 14 64.4 false :88 Gongpyeong-ro, Jung-gu, Daegu:
+Person::Person(...):s1 1 65.4 true :Jongno-gu Seoul:
+Student::Student(...): Physics 3.8 1
+Person::Person(...):s2 2 54.3 false :Yeonje-gu Busan:
+Student::Student(...): Electronics 2.5 4
+Person::Person(...):w1 3 33.3 false :Kangnam-gu Seoul:
+Worker::Worker(...): Samsung Director
+Person::Person(...):w2 4 44.4 true :Dobong-gu Kwangju:
+Worker::Worker(...): Hyundai Manager
+Person::Person(...):a1 5 55.5 true :Dong-gu Incheon:
+Student::Student(...): Computer 3.5 2
+Worker::Worker(...): Hyundai Labor
+StudentWorker::StudentWorker(...): :CU KangNam,Seven Eleven,GSStore Suwon: false
+Person::Person(...):a2 6 66.6 false :Sasang-gu Sejong:
+Student::Student(...): History 3.1 1
+Worker::Worker(...): Kia CEO
+StudentWorker::StudentWorker(...): :Seven Eveven,eMart Jinju,CU Bongsun: true
+Person::Person(const Person&):p0 10 70 false :Gwangju Nam-gu Bongseon-dong 21:
+Person::Person(const Person&):p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+Person::Person(const Person&):s1 1 65.4 true :Jongno-gu Seoul:
+Student::Student(const Student& s): Physics 3.8 1
+Person::Person(const Person&):s2 2 54.3 false :Yeonje-gu Busan:
+Student::Student(const Student& s): Electronics 2.5 4
+Person::Person(const Person&):w1 3 33.3 false :Kangnam-gu Seoul:
+Worker::Worker(const Worker& w): Samsung Director
+Person::Person(const Person&):w2 4 44.4 true :Dobong-gu Kwangju:
+Worker::Worker(const Worker& w): Hyundai Manager
+Person::Person(const Person&):a1 5 55.5 true :Dong-gu Incheon:
+Student::Student(const Student& s): Computer 3.5 2
+Worker::Worker(const Worker& w): Hyundai Labor
+StudentWorker::StudentWorker(const StudentWorker& a): :CU KangNam,Seven Eleven,GSStore Suwon: false
+Person::Person(const Person&):a2 6 66.6 false :Sasang-gu Sejong:
+Student::Student(const Student& s): History 3.1 1
+Worker::Worker(const Worker& w): Kia CEO
+StudentWorker::StudentWorker(const StudentWorker& a): :Seven Eveven,eMart Jinju,CU Bongsun: true
+PersonManager::run() starts
+
+====================== Person Management Menu ===================
+= 0.Exit 1.Display 2.Append 3.Clear 4.Login(CurrentUser, ch9)   =
+= 5.Insert(6_2) 6.Delete(6_2) 7.CopyPersons(7_3) 8.Reset(7_3)   =
+=================================================================
+Menu item number? 4
+user name: p1
+password: 
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 6
+Person::Person(const Person&):p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+rUser: p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+p    : p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+(rUser == p): true
+input person information:
+p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+rUser: p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+p    : p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+(rUser == p): true
+Person::~Person():p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 0
+
+====================== Person Management Menu ===================
+= 0.Exit 1.Display 2.Append 3.Clear 4.Login(CurrentUser, ch9)   =
+= 5.Insert(6_2) 6.Delete(6_2) 7.CopyPersons(7_3) 8.Reset(7_3)   =
+=================================================================
+Menu item number? 4
+user name: s1
+password: 
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 6
+Person::Person(const Person&):s1 1 65.4 true :Jongno-gu Seoul:
+Student::Student(const Student& s): Physics 3.8 1
+rUser: s1 1 65.4 true :Jongno-gu Seoul: Physics 3.8 1
+p    : s1 1 65.4 true :Jongno-gu Seoul: Physics 3.8 1
+(rUser == p): true
+input person information:
+s1 1 65.4 true :Jongno-gu Seoul: Physics 3.8 2
+rUser: s1 1 65.4 true :Jongno-gu Seoul: Physics 3.8 1
+p    : s1 1 65.4 true :Jongno-gu Seoul: Physics 3.8 2
+(rUser == p): false
+Student::~Student(): Physics 3.8 2
+Person::~Person():s1 1 65.4 true :Jongno-gu Seoul:
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 0
+
+====================== Person Management Menu ===================
+= 0.Exit 1.Display 2.Append 3.Clear 4.Login(CurrentUser, ch9)   =
+= 5.Insert(6_2) 6.Delete(6_2) 7.CopyPersons(7_3) 8.Reset(7_3)   =
+=================================================================
+Menu item number? 4
+user name: w1
+password: 
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 6
+Person::Person(const Person&):w1 3 33.3 false :Kangnam-gu Seoul:
+Worker::Worker(const Worker& w): Samsung Director
+rUser: w1 3 33.3 false :Kangnam-gu Seoul: Samsung Director
+p    : w1 3 33.3 false :Kangnam-gu Seoul: Samsung Director
+(rUser == p): true
+input person information:
+w1 3 33.3 false :Kangnam-gu Seoul: Kia Director
+rUser: w1 3 33.3 false :Kangnam-gu Seoul: Samsung Director
+p    : w1 3 33.3 false :Kangnam-gu Seoul: Kia Director
+(rUser == p): false
+Worker::~Worker(): Kia Director
+Person::~Person():w1 3 33.3 false :Kangnam-gu Seoul:
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 0
+
+====================== Person Management Menu ===================
+= 0.Exit 1.Display 2.Append 3.Clear 4.Login(CurrentUser, ch9)   =
+= 5.Insert(6_2) 6.Delete(6_2) 7.CopyPersons(7_3) 8.Reset(7_3)   =
+=================================================================
+Menu item number? 4
+user name: a1
+password: 
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 6
+Person::Person(const Person&):a1 5 55.5 true :Dong-gu Incheon:
+Student::Student(const Student& s): Computer 3.5 2
+Worker::Worker(const Worker& w): Hyundai Labor
+StudentWorker::StudentWorker(const StudentWorker& a): :CU KangNam,Seven Eleven,GSStore Suwon: false
+rUser: a1 5 55.5 true :Dong-gu Incheon: Computer 3.5 2 Hyundai Labor :CU KangNam,Seven Eleven,GSStore Suwon: false
+p    : a1 5 55.5 true :Dong-gu Incheon: Computer 3.5 2 Hyundai Labor :CU KangNam,Seven Eleven,GSStore Suwon: false
+(rUser == p): true
+input person information:
+a1 5 55.5 true :Dong-gu Incheon: Computer 3.5 2 Hyundai Labor :CU KangNam,Seven Eleven,GSStore Suwon: true
+rUser: a1 5 55.5 true :Dong-gu Incheon: Computer 3.5 2 Hyundai Labor :CU KangNam,Seven Eleven,GSStore Suwon: false
+p    : a1 5 55.5 true :Dong-gu Incheon: Computer 3.5 2 Hyundai Labor :CU KangNam,Seven Eleven,GSStore Suwon: true
+(rUser == p): false
+StudentWorker::~StudentWorker(): :CU KangNam,Seven Eleven,GSStore Suwon: true
+Worker::~Worker(): Hyundai Labor
+Student::~Student(): Computer 3.5 2
+Person::~Person():a1 5 55.5 true :Dong-gu Incheon:
+
++++++++++++++++++++++ Current User Menu ++++++++++++++++++++++++
++ 0.Logout 1.Display 2.Getter 3.Setter 4.Set 5.WhatAreYouDoing +
++ 6.IsSame 7.InputPerson 8.ChangePasswd(4_2) 9.ManageMemo(4_3) +
++ 10.DefaultParameter(6_1) 11.StaticMember(6_1)                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Menu item number? 0
+
+====================== Person Management Menu ===================
+= 0.Exit 1.Display 2.Append 3.Clear 4.Login(CurrentUser, ch9)   =
+= 5.Insert(6_2) 6.Delete(6_2) 7.CopyPersons(7_3) 8.Reset(7_3)   =
+=================================================================
+Menu item number? 0
+PersonManager::run() returned
+Person::~Person():p0 10 70 false :Gwangju Nam-gu Bongseon-dong 21:
+Person::~Person():p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+Student::~Student(): Physics 3.8 1
+Person::~Person():s1 1 65.4 true :Jongno-gu Seoul:
+Student::~Student(): Electronics 2.5 4
+Person::~Person():s2 2 54.3 false :Yeonje-gu Busan:
+Worker::~Worker(): Samsung Director
+Person::~Person():w1 3 33.3 false :Kangnam-gu Seoul:
+Worker::~Worker(): Hyundai Manager
+Person::~Person():w2 4 44.4 true :Dobong-gu Kwangju:
+StudentWorker::~StudentWorker(): :CU KangNam,Seven Eleven,GSStore Suwon: false
+Worker::~Worker(): Hyundai Labor
+Student::~Student(): Computer 3.5 2
+Person::~Person():a1 5 55.5 true :Dong-gu Incheon:
+StudentWorker::~StudentWorker(): :Seven Eveven,eMart Jinju,CU Bongsun: true
+Worker::~Worker(): Kia CEO
+Student::~Student(): History 3.1 1
+Person::~Person():a2 6 66.6 false :Sasang-gu Sejong:
+StudentWorker::~StudentWorker(): :Seven Eveven,eMart Jinju,CU Bongsun: true
+Worker::~Worker(): Kia CEO
+Student::~Student(): History 3.1 1
+Person::~Person():a2 6 66.6 false :Sasang-gu Sejong:
+StudentWorker::~StudentWorker(): :CU KangNam,Seven Eleven,GSStore Suwon: false
+Worker::~Worker(): Hyundai Labor
+Student::~Student(): Computer 3.5 2
+Person::~Person():a1 5 55.5 true :Dong-gu Incheon:
+Worker::~Worker(): Hyundai Manager
+Person::~Person():w2 4 44.4 true :Dobong-gu Kwangju:
+Worker::~Worker(): Samsung Director
+Person::~Person():w1 3 33.3 false :Kangnam-gu Seoul:
+Student::~Student(): Electronics 2.5 4
+Person::~Person():s2 2 54.3 false :Yeonje-gu Busan:
+Student::~Student(): Physics 3.8 1
+Person::~Person():s1 1 65.4 true :Jongno-gu Seoul:
+Person::~Person():p4 14 64.4 false :88 Gongpyeong-ro, Jung-gu, Daegu:
+Person::~Person():p3 13 83.3 true :100 Dunsan-ro Seo-gu Daejeon:
+Person::~Person():p2 12 52.2 false :1001, Jungang-daero, Yeonje-gu, Busan:
+Person::~Person():p1 11 61.1 true :Jong-ro 1-gil, Jongno-gu, Seoul:
+Person::~Person():p0 10 70 false :Gwangju Nam-gu Bongseon-dong 21:
+
+******************************* Main Menu *********************************
+* 0.Exit 1.PersonManager(ch3_2, 4, 6, 7_2, 8, 9)                          *
+* 2.Class:Object(ch3_1) 3.CopyConstructor(ch5_1) 4.AllocatedMember(ch5_2) *
+* 5.OperatorOverload(ch7_1) 6.Inheritance(ch8)                            *
+***************************************************************************
+Menu item number? 0
+Good bye!!
